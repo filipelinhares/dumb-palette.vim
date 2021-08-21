@@ -1,4 +1,4 @@
-*dumb-pallete*	Easy and dumb command pallete to vim
+*dumb-palette*	Easy and dumb command palette in Vim
 
 Version: 0.0.1
 Author : Filipe Linhares (https://github.com/filipelinhares)
@@ -31,7 +31,7 @@ COMMANDS 					*dumb-commands*
 		Open the popup with the option set in g:dumb_commands.
 
 :DumbClose 
-  Close the dumb pallete popup.
+  Close the dumb palette popup.
 ------------------------------------------------------------------------------
 VARIABLES 					*dumb-variables*
 

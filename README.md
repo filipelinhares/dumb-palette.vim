@@ -1,16 +1,15 @@
-# dumb-pallete.vim
-Simple and dumb command pallete for vim
+# dumb-palette.vim
+Simple and dumb command palette for vim
 
 ## Installation
 ```vim
-Plug 'filipelinhares/dumb-pallete.vim'
+Plug 'filipelinhares/dumb-palette.vim'
 ```
 
 ## Configuration
 ```
 let dumb_commands = [
-      \ {'text': 'Prettier', 'command': 'PrettierAsync' },
-      \ {'text': 'Logando', 'func': 'Logando' },
+      \ {'text': 'With function', 'func': 'FunctionName' },
       \ {'text': 'Package Install', 'command': 'PlugInstall' },
       \ ]
 ```
@@ -24,7 +23,7 @@ let dumb_commands = [
 
 ## Help
 ```
-:help dumb-pallete
+:help dumb-palette
 ```
 
 ## License

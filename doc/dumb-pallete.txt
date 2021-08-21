@@ -1,6 +1,6 @@
 *dumb-pallete*	Easy and dumb command pallete to vim
 
-Version: 0.1
+Version: 0.0.1
 Author : Filipe Linhares (https://github.com/filipelinhares)
 License: MIT license
 

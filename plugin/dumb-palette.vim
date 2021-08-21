@@ -66,4 +66,3 @@ else
   nnoremap <leader>o :call <SID>PopupOpen()<CR>
 endif
 
-

@@ -14,6 +14,10 @@ let dumb_commands = [
       \ ]
 ```
 
+## Mapping
+
+<kbd>`<leader>`</kbd>+<kbd>o</kbd> :DumbOpen
+
 ## Commands
 
 ```

@@ -1,5 +1,5 @@
 # dumb-palette.vim
-Simple and dumb command palette for vim
+Simple and dumb command palette for Vim
 
 ## Installation
 ```vim
@@ -29,6 +29,11 @@ let dumb_commands = [
 ```
 :help dumb-palette
 ```
+
+## Screen
+<p align="center">
+  <img src="https://i.imgur.com/GSJzKtM.gif" />
+</p>
 
 ## License
 [MIT](LICENSE.md) © Filipe Linhares

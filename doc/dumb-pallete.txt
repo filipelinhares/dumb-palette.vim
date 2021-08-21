@@ -1,0 +1,71 @@
+*dumb-pallete*	Easy and dumb command pallete to vim
+
+Version: 0.1
+Author : Filipe Linhares (https://github.com/filipelinhares)
+License: MIT license
+
+CONTENTS 					*dumb-contents*
+
+Introduction···············|dumb-introduction|
+Usage······················|dumb-usage|
+Commands···················|dumb-commands|
+Key mappings···············|dumb-key-mappings|
+Configuration··············|dumb-configuration|
+
+==============================================================================
+INTRODUCTION 					*dumb-introduction*
+
+*dumb* is a powerful file explorer (or filer) written in Vim script.
+
+==============================================================================
+USAGE 						*dumb-usage*
+
+Set up g:dumb_commands and hit <leader>o, or change
+the key (more in *dumb-key-mappings*)
+
+
+==============================================================================
+COMMANDS 					*dumb-commands*
+
+:DumbOpen 
+		Open the popup with the option set in g:dumb_commands.
+
+:DumbClose 
+  Close the dumb pallete popup.
+------------------------------------------------------------------------------
+VARIABLES 					*dumb-variables*
+
+g:dumb_commands  (required)
+		If this variable is not set, dumb will not be loaded.
+
+------------------------------------------------------------------------------
+KEY MAPPINGS 					*dumb-key-mappings*
+
+Normal mode default mappings.
+-------------------------------------
+<leader>o :DumbOpen
+-------------------------------------
+
+Remap eg:
+  nmap <leader>p :call :DumbOpen()<CR>
+------------------------------------------------------------------------------
+CONFIGURATION 						*dumb-configuration*
+
+*dumb_commands* 
+  A list of dicts with commands to execute, eg:
+
+  function LogTest()
+    echo 'Hello!'
+  endfunction
+
+  let dumb_commands = [
+      \ {'text': 'CallFunction', 'func': 'LogTest' },
+      \ {'text': 'Package Install', 'command': 'PlugInstall' },
+      \ ]
+
+  If you use 'func' the function must be avaiable in the current scope.
+
+*g:dumb_no_maps*
+		Disable key mapping
+
+==============================================================================

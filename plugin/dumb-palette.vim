@@ -1,4 +1,4 @@
-if v:version < 700 || exists('loaded_dumb') || !exists('dumb_commands') || &cp
+if v:version < 802 || exists('loaded_dumb') || !exists('*popup_menu') || &cp
   finish
 endif
 

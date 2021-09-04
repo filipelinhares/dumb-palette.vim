@@ -1,4 +1,4 @@
-# dumb-palette.vim
+# dumb-palette.vim ![version](https://img.shields.io/github/v/tag/filipelinhares/dumb-pallete.vim?color=gray&label=version)
 Simple and dumb command palette for Vim
 
 ## Installation

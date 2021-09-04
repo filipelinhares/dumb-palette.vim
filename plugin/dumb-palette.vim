@@ -20,7 +20,7 @@ function! PopupCallback(id, result)
 
   if has_key(s:matched[current], 'func')
     let FuncRef = funcref(s:matched[current].func)
-    call FuncRef(a:result)
+    call FuncRef(s:matched[current])
   endif
 
   if has_key(s:matched[current], 'command')
@@ -29,7 +29,6 @@ function! PopupCallback(id, result)
 
   let s:matched = copy(g:dumb_commands)
   let s:input_string = ['']
-
 endfunction
 
 function! InputFilter(id, key)

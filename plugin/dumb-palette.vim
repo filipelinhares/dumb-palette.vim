@@ -48,7 +48,8 @@ function! InputFilter(id, key)
 endfunction
 
 function! s:PopupOpen()
-  let winid = popup_menu(g:dumb_commands, #{ close: 'button', mousemoved: 'word', fixed: 1, maxwidth: 550, maxheight: 20, callback: 'PopupCallback', filter: 'InputFilter'})
+  let s:input_string = ['']
+  let winid = popup_menu(g:dumb_commands, #{ callback: 'PopupCallback', filter: 'InputFilter'})
 endfunction
 
 function! s:PopupClose()

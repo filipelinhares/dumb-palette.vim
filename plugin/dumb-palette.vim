@@ -5,7 +5,7 @@ endif
 let loaded_dumb = 1
 let s:input_string = []
 let s:matched = []
-let s:alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',]
+let s:alphabet = map(range(char2nr('0'), char2nr('z')), 'nr2char(v:val)')
 
 function! PopupCallback(id, result) 
   let current = a:result - 1

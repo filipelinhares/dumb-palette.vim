@@ -1,6 +1,6 @@
 *dumb-palette*	Easy and dumb command palette in Vim
 
-Version: 0.0.1
+Version: 0.0.2
 Author : Filipe Linhares (https://github.com/filipelinhares)
 License: MIT license
 
@@ -15,28 +15,58 @@ Configuration··············|dumb-configuration|
 ==============================================================================
 INTRODUCTION 					*dumb-introduction*
 
-*dumb* is a powerful file explorer (or filer) written in Vim script.
+*dumb-palette* is a customizable command palette for Vim.
 
 ==============================================================================
 USAGE 						*dumb-usage*
 
-Set up g:dumb_commands and hit <leader>o, or change
-the key (more in *dumb-key-mappings*)
-
+Set up g:dumb_commands and hit <leader>o, or change the key (*dumb-key-mappings*)
 
 ==============================================================================
 COMMANDS 					*dumb-commands*
 
 :DumbOpen 
-		Open the popup with the option set in g:dumb_commands.
+	Open the popup with the option set in g:dumb_commands.
 
 :DumbClose 
-  Close the dumb palette popup.
+	Close the dumb palette popup.
 ------------------------------------------------------------------------------
 VARIABLES 					*dumb-variables*
 
-g:dumb_commands  (required)
-		If this variable is not set, dumb will not be loaded.
+*g:dumb_commands*  (required)
+
+	Allowed inner properties:
+	- func<string> - Execute a function you've created.
+	- command<string> - Run a Vim command.
+
+	Define the commands to show inside popup, eg:
+
+	function! FunctionName(selected)
+		" Print the selected option, eg: {'text': 'With function', 'func': 'FunctionName' }
+		echo a:selected
+	endfunction
+
+	let dumb_commands = [
+		\ {'text': 'With function', 'func': 'FunctionName' },
+		\ {'text': 'Package Install', 'command': 'PlugInstall' },
+		\ ]
+
+	You can add custom properties to use inside the function, eg:
+
+	let dumb_commands = [
+		\ {'text': 'Copy file name', 'type': 'filename', 'func': 'ClipboardFilter' },
+		\ {'text': 'Copy project path', 'type': 'filename-project', 'func': 'ClipboardFilter' },
+		\ ]
+
+	func ClipboardFilter(option)
+		if a:option.type == 'filename'
+			let @* = expand('%:t')
+		endif
+
+		if a:option.type == 'filename-project'
+			let @* = expand('%:p')
+		endif
+	endfunc
 
 ------------------------------------------------------------------------------
 KEY MAPPINGS 					*dumb-key-mappings*
@@ -47,26 +77,26 @@ Normal mode default mappings.
 -------------------------------------
 
 Remap eg:
-  nmap <leader>p :call :DumbOpen()<CR>
+	nmap <leader>p :call :DumbOpen()<CR>
 ------------------------------------------------------------------------------
 CONFIGURATION 						*dumb-configuration*
 
 *dumb_commands* 
-  A list of dicts with commands to execute, eg:
+	A list of dicts with commands to execute, eg:
 
-  function LogTest()
-    echo 'Hello!'
-  endfunction
+	function LogTest()
+		echo 'Hello!'
+	endfunction
 
-  let dumb_commands = [
-      \ {'text': 'CallFunction', 'func': 'LogTest' },
-      \ {'text': 'Package Install', 'command': 'PlugInstall' },
-      \ ]
+	let dumb_commands = [
+			\ {'text': 'CallFunction', 'func': 'LogTest' },
+			\ {'text': 'Package Install', 'command': 'PlugInstall' },
+			\ ]
 
-  If you use 'func' the function must be avaiable in the current scope.
+If you use 'func' the function must be avaiable in the current scope.
 
 *g:dumb_no_maps*
-		Disable key mapping
+	Disable key mapping
 
 ==============================================================================
 
